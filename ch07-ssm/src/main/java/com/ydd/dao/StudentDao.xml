@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybtis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ydd.dao.StudentDao">
+
+<select id="selectStudent" resultType="com.ydd.doman.Student">
+    select id,name,age from student order by id ASC
+</select>
+
+    <insert id="insertStudent">
+-- 值是一个对象，可以使用属性名代替实际的参数值
+        insert into student(name,age) values(#{name},#{age})
+    </insert>
+</mapper>

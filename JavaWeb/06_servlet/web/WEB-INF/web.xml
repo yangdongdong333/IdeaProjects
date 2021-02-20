@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+    <!--    上下文参数（属于整个web工程)-->
+    <context-param>
+        <param-name>userName</param-name>
+        <param-value>context</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>password</param-name>
+        <param-value>root</param-value>
+    </context-param>
+
+    <!--    servlet标签给Tomcat配置servlet程序-->
+    <servlet>
+        <!--        servlet-name给servlet陈旭起一个别名（一般是类名）-->
+        <servlet-name>HelloServlet</servlet-name>
+        <!--        servlet-class一般是servlet程序的全类名-->
+        <servlet-class>com.ydd.servlet.HelloServlet</servlet-class>
+        <!--        init-param是初始化参数-->
+        <init-param>
+            <!--            参数名-->
+            <param-name>userName</param-name>
+            <!--            参数值-->
+            <param-value>root</param-value>
+        </init-param>
+
+    </servlet>
+    <!--    servlet-mapping标签给servlet程序配置访问地址-->
+    <servlet-mapping>
+        <!--        告诉服务器，当前的配置的地址给哪个servlet程序使用-->
+        <servlet-name>HelloServlet</servlet-name>
+        <!--        配置访问地址-->
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ServletByExtends</servlet-name>
+        <servlet-class>com.ydd.servlet.ServletByExtends</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletByExtends</servlet-name>
+        <url-pattern>/hello2</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HelloServlet3</servlet-name>
+        <servlet-class>com.ydd.servlet.HelloServlet3</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HelloServlet3</servlet-name>
+        <url-pattern>/hello3</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ContextServlet</servlet-name>
+        <servlet-class>com.ydd.servlet.ContextServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ContextServlet</servlet-name>
+        <url-pattern>/contextServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ContextServlet1</servlet-name>
+        <servlet-class>com.ydd.servlet.ContextServlet1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ContextServlet1</servlet-name>
+        <url-pattern>/context1</url-pattern>
+    </servlet-mapping>
+</web-app>

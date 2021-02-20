@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/page/index.css">
+    <title>window调用打印接口</title>
+    <style>
+        #pr{width:100px;height:40px;line-height:40px;text-align:center;background:#ccc;}
+        .box{width:600px;background:red;}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>要打印的内容</h1>
+        <p>测试内容</p>
+    </div>
+    <div id="pr">点击打印</div>
+</body>
+</html>
+<script>
+    function $(selector){
+        return document.querySelector(selector);
+    }
+    //获取整个页面
+    $("#pr").onclick =function(){
+        window.print();
+    }
+ 
+    /* 实现打印全部页面（也可以打印局部页面 - 看需求） ---- 
+   	   我是只打印boby里边的内容
+   	   获取我们定义的id
+   	*/
+    $("#pr").onclick =function(){
+        var oldHtml = $("body").innerHTML; 
+        var printbox = $(".box").innerHTML;
+        $("body").innerHTML = printbox;
+        window.print();
+        $("body").innerHTML = oldHtml;
+        location.reload();
+ 
+    }
+</script>

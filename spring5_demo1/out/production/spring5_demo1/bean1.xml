@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--1 配置user对象的创建-->
+    <bean id="user" class="com.ydd.spring5.User"></bean>
+    <bean id="testSpring5" class="com.ydd.spring5.testdemo.TestSpring5"></bean>
+<!--    2 set方法注入属性-->
+    <bean id="book" class="com.ydd.spring5.Book">
+    <!--    bean标签里面使用property标签完成属性注入-->
+    <!--    name：类里面属性的名称-->
+    <!--    value：类里面属性的值-->
+        <property name="bname" value="易筋经"></property>
+        <property name="bauthor" value="达摩老祖"></property>
+        <property name="address">
+            <null/>
+        </property>
+
+    </bean>
+<!--    3,有参数构造注入属性-->
+    <bean id="orders" class="com.ydd.spring5.Orders">
+    <constructor-arg name="address" value="新店乡"></constructor-arg>
+    <constructor-arg name="oname" value="电脑"></constructor-arg>
+   <!--或者-->
+<!--        <constructor-arg index="0" value="s"></constructor-arg>-->
+<!--        <constructor-arg index="1" value="s"></constructor-arg>-->
+    </bean>
+
+
+
+
+
+
+</beans>
