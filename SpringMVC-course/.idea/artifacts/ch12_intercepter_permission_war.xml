@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ch12-intercepter-permission:war">
+    <output-path>$PROJECT_DIR$/../ch12-intercepter-permission/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>ch12-intercepter-permission</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="ch01-hello-springMVC.war">
+      <element id="artifact" artifact-name="ch12-intercepter-permission:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--实现自动装配
+bean标签中有属性Autowire：配置自动装配 autowire属性有两个值：
+byName根据属性名称注入：bean的id要与属性名一样
+byType根据类型注入-->
+<!--<bean id="emp" class="com.ydd.spring5.autowire.Emp" autowire="byName">-->
+    <bean id="emp" class="com.ydd.spring5.autowire.Emp" autowire="byType">
+<!--    <property name="dept"  ref="dept"></property>-->
+
+</bean>
+<bean id="dept" class="com.ydd.spring5.autowire.Dept" ></bean>
+</beans>

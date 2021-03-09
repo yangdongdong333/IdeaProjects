@@ -31,7 +31,39 @@ resultTpye:表示结果类型，是SQL语句执行后得到的ResultSet遍历后
 值写的是类型的全限定名称
 -->
 <!--    #{id}表示获取这个对象的id的属性值-->
-    <select id="selectStudent" resultType="com.ydd.domain.Student">
-        select id,name,email,age from student order by id
+    <select id="selectStudentById" parameterType="java.lang.Integer" resultType="com.ydd.domain.Student">
+        select id,name,email,age from student where id=#{id}
+    </select>
+
+    <select id="selectMultiParam" resultType="com.ydd.domain.Student">
+        select id,name,email,age from student where name=#{myname} or age=#{myage}
+    </select>
+
+<!--    多个参数，使用java对象的属性值，作为参数实际值
+语法格式：
+     完整语法：#{属性名，javaType=类型名称，jdbcType=数据类型}
+            javaType：java中的属性的数据类型
+            jdbcType：在数据库中的对应类型
+     简化方式：#{属性名}，javaType，jdbcType的值mybatis反射能够获取，不用提供
+
+-->
+    <select id="selectMultiByObject" resultType="com.ydd.domain.Student">
+        select id,name,email,age from student where name=#{paramName} or age=#{paramAge}
+    </select>
+<!--    定义resultMap
+id：自定义名称：表示自定义的resultMap
+type：java类型的全限定名称
+-->
+<resultMap id="studengMap" type="com.ydd.domain.Student">
+
+    <id column="id" property="id"></id>
+    <!--    非主键列使用result标签-->
+    <result column="name" property="name"></result>
+    <result column="email" property="email"></result>
+    <result column="age" property="age"></result>
+</resultMap>
+
+    <select id="selectAllStudent">
+        select id,name,email,age from student
     </select>
 </mapper>

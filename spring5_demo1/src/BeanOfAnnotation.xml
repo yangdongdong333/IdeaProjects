@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--开启组件扫描：
+1  如果需要扫描多个包，用逗号隔开
+2  目录写为需要扫描的多个包的上一层路径
+-->
+   <context:component-scan base-package="com.ydd.spring5">
+   </context:component-scan>
+<!--   示例1 ：表示不适用默认filter，自己配置filter。include是包含的意思
+      false表示不扫描所有，只扫描带有Controller注解的-->
+   <context:component-scan base-package="com.ydd" use-default-filters="false" >
+      <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+   </context:component-scan>
+<!--   示例2 ：context:exclude-filter 设置哪些不去扫描-->
+   <context:component-scan base-package="com.ydd" >
+      <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+   </context:component-scan>
+</beans>
